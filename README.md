@@ -1,2 +1,0 @@
-# ASM
-Aprendizado de ASM
