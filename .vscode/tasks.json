@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compilar Assembly",
+      "type": "shell",
+      "command": "nasm",
+      "args": ["-f", "win32", "main.asm", "-o", "main.obj"]
+    },
+    {
+      "label": "Linkar com GCC",
+      "type": "shell",
+      "command": "gcc",
+      "args": ["main.obj", "-o", "main.exe"],
+      "dependsOn": "Compilar Assembly"
+    },
+    {
+      "label": "Executar programa",
+      "type": "shell",
+      "command": ".\\main.exe",
+      "dependsOn": "Linkar com GCC",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
