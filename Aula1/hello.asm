@@ -14,7 +14,7 @@ section .text
     extern ExitProcess
 
 main:
-    sub rsp, 40                      ; alinhamento da stack
+    sub rsp, 32                     ; alinhamento da stack
 
     mov ecx, STD_OUTPUT_HANDLE
     call GetStdHandle                ; rax = handle
@@ -23,7 +23,7 @@ main:
     mov rdx, msg                     ; ponteiro para string
     mov r8d, tam                     ; tamanho da string
     lea r9, [rsp+32]                 ; ponteiro para variável de retorno
-    mov qword [rsp+40], NULL         ; lpReserved = NULL       Obs: isso não precisa ser passado o programa entende como Nulo porém coloquei para aprender.  
+    ;mov qword [rsp+40], NULL         ; lpReserved = NULL       Obs: isso não precisa ser passado o programa entende como Nulo porém coloquei para aprender.  
     call WriteConsoleA
 
     xor ecx, ecx                     ; código de saída
